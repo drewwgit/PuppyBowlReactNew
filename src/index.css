@@ -1,4 +1,4 @@
-.player-details, .player-card {
+.character {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -12,14 +12,13 @@
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
   }
 
-  .puppy-players {
+  .characterWrapper {
     display: flex;
     align-items: center;
     flex-direction: column;
-    max-height: 250px;
   }
 
-.player-card > img {
+.character > img {
     display: flex;
     align-items: center; 
     height: 150px;
@@ -31,7 +30,7 @@ a {
   padding: 15px;
   font-size: larger;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: lightblue;
+  color: black;
 }
 
 nav {

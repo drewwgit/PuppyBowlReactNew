@@ -1,23 +1,31 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AllPlayers from './components/AllPlayers';
-import SinglePlayer from './components/SinglePlayer';
-import NewPlayerForm from './components/NewPlayerForm';
-import NavBar from './components/NavBar';
+import PlayerList from './components/PlayerList';
+import PlayerPage from './components/PlayerPage';
+import AddPlayer from './components/AddPlayer';
+import { useGetPlayersQuery } from './api';
+import Nav from './components/Nav';
 import './index.css';
 
 function App() {
 
+  const {isLoading} = useGetPlayersQuery(); 
+
   return (
-    <Router>
-      <NavBar />
+    <>
+    {isLoading? 
+      <h1> Loading Page... </h1> :
+    <>
+      <Nav />
       <Routes>
-        <Route path="/" element={<AllPlayers />} />
-        <Route path="/players/:id" element={<SinglePlayer />} />
-        <Route path="/new-player" element={<NewPlayerForm />} />
+        <Route index element={<PlayerList />} />
+        <Route path="/players/:id" element={<PlayerPage />} />
+        <Route path="addPlayer" element={<AddPlayer />} />
       </Routes>
-    </Router>
-  );
+      </>}
+
+    </>
+  )
 }
 
 export default App;
